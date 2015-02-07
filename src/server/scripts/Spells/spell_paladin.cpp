@@ -1230,8 +1230,8 @@ class spell_pal_sacred_shield : public SpellScriptLoader
             {
                 if (Unit* caster = GetCaster())
                 {
-                    // +75.00% from sp bonus
-                    float bonus = CalculatePct(caster->SpellBaseHealingBonusDone(GetSpellInfo()->GetSchoolMask()), 75.0f);
+                    // +55.00% from sp bonus
+                    float bonus = CalculatePct(caster->SpellBaseHealingBonusDone(GetSpellInfo()->GetSchoolMask()), 55.0f);
 
                     // Divine Guardian is only applied at the spell healing bonus because it was already applied to the base value in CalculateSpellDamage
                     bonus = caster->ApplyEffectModifiers(GetSpellInfo(), aurEff->GetEffIndex(), bonus);
