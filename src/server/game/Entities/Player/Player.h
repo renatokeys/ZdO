@@ -142,6 +142,14 @@ typedef std::unordered_map<uint32, PlayerTalent*> PlayerTalentMap;
 typedef std::unordered_map<uint32, PlayerSpell*> PlayerSpellMap;
 typedef std::list<SpellModifier*> SpellModList;
 
+struct ReforgeData
+{
+    uint32 increase, decrease;
+    int32 stat_value;
+};
+
+typedef std::unordered_map<uint32, ReforgeData> ReforgeMapType;
+
 struct SpellCooldown
 {
     time_t end;
@@ -1599,7 +1607,7 @@ class Player : public Unit, public GridObject<Player>
         Player* GetSelectedPlayer() const;
 
         void SetTarget(ObjectGuid /*guid*/) override { } /// Used for serverside target changes, does not apply to players
-        void SetSelection(ObjectGuid guid) { SetGuidValue(UNIT_FIELD_TARGET, guid); }
+		void SetSelection(ObjectGuid guid);// { SetGuidValue(UNIT_FIELD_TARGET, guid); }
 
         uint8 GetComboPoints() const { return m_comboPoints; }
         ObjectGuid GetComboTarget() const { return m_comboTarget; }
@@ -2366,6 +2374,7 @@ class Player : public Unit, public GridObject<Player>
         void SetTitle(CharTitlesEntry const* title, bool lost = false);
 
         //bool isActiveObject() const { return true; }
+		ReforgeMapType reforgeMap; // reforgeMap[iGUID] = ReforgeData
         bool CanSeeSpellClickOn(Creature const* creature) const;
 
         uint32 GetChampioningFaction() const { return m_ChampioningFaction; }

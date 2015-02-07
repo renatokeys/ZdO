@@ -1975,18 +1975,19 @@ void Player::InnEnter(time_t time, uint32 mapid, float x, float y, float z)
     time_inn_enter = time;
 }
 
-void Player::SetSelection(uint64 guid)
+void Player::SetSelection(ObjectGuid guid)
 {
-	m_curSelection = guid;
+	//uint64 selectionGUID = guid;
 	SetUInt64Value(UNIT_FIELD_TARGET, guid);
 	if (Player *target = ObjectAccessor::FindPlayer(guid))
-		if (HaveSpectators())
+		 if (HaveSpectators())
 		{
-			SpectatorAddonMsg msg;
-			msg.SetPlayer(GetName());
-			msg.SetTarget(target->GetName());
-			SendSpectatorAddonMsgToBG(msg);
+		SpectatorAddonMsg msg;
+		msg.SetPlayer(GetName());
+		msg.SetTarget(target->GetName());
+		SendSpectatorAddonMsgToBG(msg);
 		}
+	
 }
 
 bool Player::BuildEnumData(PreparedQueryResult result, WorldPacket* data)

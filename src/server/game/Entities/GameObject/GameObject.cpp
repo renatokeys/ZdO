@@ -559,7 +559,7 @@ void GameObject::Update(uint32 diff)
                     }
                     else if (Unit* target = ObjectAccessor::GetUnit(*this, m_lootStateUnitGUID))
                     {
- 						if (Player *tmpPlayer = ok->ToPlayer())
+ 						if (Player *tmpPlayer = target->ToPlayer())
  							if (tmpPlayer->IsSpectator())
  								return;
                         // Some traps do not have a spell but should be triggered
