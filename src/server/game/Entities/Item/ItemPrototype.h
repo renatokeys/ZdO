@@ -745,6 +745,12 @@ struct ItemTemplate
 
 // Benchmarked: Faster than std::map (insert/find)
 typedef std::unordered_map<uint32, ItemTemplate> ItemTemplateContainer;
+struct FakeStatStruct
+{
+    uint32 increase, decrease;
+    int32 stat_value;
+};
+typedef std::unordered_map<uint32, FakeStatStruct> ItemFakeStatContainer; // custom
 
 struct ItemLocale
 {
