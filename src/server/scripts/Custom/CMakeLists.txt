@@ -19,6 +19,7 @@ set(scripts_STAT_SRCS
 	Custom/Reforging.cpp
  	Custom/npc_arena1v1.cpp
     Custom/npc_arena1v1.h
+	Custom/Arena_Spectator.cpp
 )
 
 message("  -> Prepared: Custom")
