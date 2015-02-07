@@ -3226,6 +3226,9 @@ void SpellMgr::LoadSpellInfoCorrections()
             case 41913: // Parasitic Shadowfiend Passive
                 spellInfo->Effects[EFFECT_0].ApplyAuraName = SPELL_AURA_DUMMY; // proc debuff, and summon infinite fiends
                 break;
+			case 24259: // Spell Lock Silence
+                spellInfo->Speed = 80;
+                break;
             case 27892: // To Anchor 1
             case 27928: // To Anchor 1
             case 27935: // To Anchor 1

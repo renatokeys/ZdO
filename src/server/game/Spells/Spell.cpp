@@ -2289,6 +2289,7 @@ void Spell::DoAllEffectOnTarget(TargetInfo* target)
         if (target->reflectResult == SPELL_MISS_NONE)       // If reflected spell hit caster -> do all effect on him
         {
             spellHitTarget = m_caster;
+			m_caster->ProcDamageAndSpell(unit, PROC_FLAG_NONE, PROC_FLAG_TAKEN_SPELL_MAGIC_DMG_CLASS_NEG, PROC_EX_REFLECT, 1, BASE_ATTACK, m_spellInfo)
             if (m_caster->GetTypeId() == TYPEID_UNIT)
                 m_caster->ToCreature()->LowerPlayerDamageReq(target->damage);
         }
@@ -4648,7 +4649,7 @@ SpellCastResult Spell::CheckCast(bool strict)
         if (!(_triggeredCastFlags & TRIGGERED_IGNORE_CASTER_AURASTATE) && m_caster->ToPlayer()->HasFlag(PLAYER_FLAGS, PLAYER_ALLOW_ONLY_ABILITY))
             return SPELL_FAILED_SPELL_IN_PROGRESS;
 
-        if (m_caster->ToPlayer()->HasSpellCooldown(m_spellInfo->Id))
+        if (m_caster->ToPlayer()->HasSpellCooldown(m_spellInfo->Id) && (m_spellInfo->Id != 15473))
         {
             if (m_triggeredByAuraSpell)
                 return SPELL_FAILED_DONT_REPORT;
@@ -4668,7 +4669,7 @@ SpellCastResult Spell::CheckCast(bool strict)
     }
 
     // Check global cooldown
-    if (strict && !(_triggeredCastFlags & TRIGGERED_IGNORE_GCD) && HasGlobalCooldown())
+    if (strict && !(_triggeredCastFlags & TRIGGERED_IGNORE_GCD) && HasGlobalCooldown() && (m_spellInfo->Id != 15473))
         return SPELL_FAILED_NOT_READY;
 
     // only triggered spells can be processed an ended battleground
@@ -5582,10 +5583,12 @@ uint32 Spell::GetCCDelay(SpellInfo const* _spell)
             break;
         case SPELLFAMILY_HUNTER: 
             // Traps
-            if (_spell->SpellFamilyFlags[0] & 0x8 || // Frozen Trap
+            /*
+			if (_spell->SpellFamilyFlags[0] & 0x8 || // Frozen Trap
                 _spell->Id == 57879 || // Snake Trap
                 _spell->SpellFamilyFlags[2] & 0x00024000) // Explosive and Immolation Trap
                 return 0;
+			*/
             // Entrapment
             if (_spell->SpellIconID == 20)
                 return 0;
@@ -5705,7 +5708,7 @@ uint32 Spell::GetCCDelay(SpellInfo const* _spell)
     }
 
     for (uint8 i = 0; i < CCDArraySize; ++i)
-        if (_spell->HasAura(auraWithCCD[i]))
+		if (_spell->HasAura(auraWithCCD[i]) && !(_spell->Id == 3355 || _spell->Id == 14308 || _spell->Id == 14309 || _spell->Id == 31932 || _spell->Id == 43448 || _spell->Id == 43415 || _spell->Id == 55041 || _spell->Id == 60210)) // Freezing Traps Delay bug
             return NOdelayForInstantSpells;
 
     return 0;
