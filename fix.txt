@@ -1,0 +1,92 @@
+deathgrip
+spellmgr.cpp
+
+
+spellInfo->Effects[EFFECT_0].TargetB = SpellImplicitTargetInfo();
+                 spellInfo->Effects[EFFECT_1].TargetB = SpellImplicitTargetInfo();
+                 break;
++            case 49575: // Death Grip Pull Time
++                spellInfo->Effects[EFFECT_0].MiscValueB = 70;
++                break;
+             case 53241: // Marked for Death (Rank 1)
+             case 53243: // Marked for Death (Rank 2)
+             case 53244: // Marked for Death (Rank 3)
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+unit.cpp 
+remover succubus
+
+
+
+spellauras.cpp
+@ -1397,6 +1397,16 @@ void Aura::HandleAuraSpecificMods(AuraApplication const* aurApp, Unit* caster, b
+                     }
+                 }
+                 break;
++            case SPELLFAMILY_WARLOCK:
++                if (!caster)
++                    break;
++                if (Unit *owner = caster->GetOwner())
++                    if (owner->HasAura(56250)) // Glyph of Succubus
++                    {
++                        target->RemoveAurasByType(SPELL_AURA_PERIODIC_DAMAGE, ObjectGuid::Empty, target->GetAura(32409)); // SW:D shall not be removed.
++                        target->RemoveAurasByType(SPELL_AURA_PERIODIC_DAMAGE_PERCENT);
++                        target->RemoveAurasByType(SPELL_AURA_PERIODIC_LEECH);
++                    }
+         }
+     }
+     // mods at aura remov
+	 
+	 
+	 
+	 
+	 
+
+unit.cpp‏
+
+
+  
+Search // Glyph of Polymorph‏
+
+
+‎7‎:‎17‎ ‎PM 
++                case 56250:
+                  case 56375:
+
+				  
+				  
+				  
+spellmgr.cpp
+
+            case 29809: // Desecration Arm - 36 instead of 37 - typo? :/
+                 spellInfo->Effects[EFFECT_0].RadiusEntry = sSpellRadiusStore.LookupEntry(EFFECT_RADIUS_7_YARDS);
+                 break;
++            case 18754: // Improved succubus - problems with apply if target is pet 
++                spellInfo->Effects[EFFECT_0].Effect = SPELL_EFFECT_APPLY_AURA;
++                spellInfo->Effects[EFFECT_0].ApplyAuraName = SPELL_AURA_ADD_FLAT_MODIFIER; 
++                spellInfo->Effects[EFFECT_0].BasePoints = -1.5 * IN_MILLISECONDS*0.22;   
++                spellInfo->Effects[EFFECT_0].TargetA = SpellImplicitTargetInfo(TARGET_UNIT_CASTER);
++                break;
++            case 18755:
++                spellInfo->Effects[EFFECT_0].Effect = SPELL_EFFECT_APPLY_AURA;
++                spellInfo->Effects[EFFECT_0].ApplyAuraName = SPELL_AURA_ADD_FLAT_MODIFIER;
++                spellInfo->Effects[EFFECT_0].BasePoints = -1.5*IN_MILLISECONDS*0.44;            
++                spellInfo->Effects[EFFECT_0].TargetA = SpellImplicitTargetInfo(TARGET_UNIT_CASTER);
++                break;
++            case 18756:
++                spellInfo->Effects[EFFECT_0].Effect = SPELL_EFFECT_APPLY_AURA;
++                spellInfo->Effects[EFFECT_0].ApplyAuraName = SPELL_AURA_ADD_FLAT_MODIFIER;
++                spellInfo->Effects[EFFECT_0].BasePoints = -1.5*IN_MILLISECONDS*0.66;          
++                spellInfo->Effects[EFFECT_0].TargetA = SpellImplicitTargetInfo(TARGET_UNIT_CASTER);
++                break;
+             case 48420:
+			 
+			 
