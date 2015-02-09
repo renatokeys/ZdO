@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "Item.h"
 #include "SpellInfo.h"
-//#include "SpectatorAddon.h"
 
 SpectatorAddonMsg::SpectatorAddonMsg()
 {
@@ -186,7 +185,6 @@ bool SpectatorAddonMsg::SendPacket(SpectatorAddonMsg msg , ObjectGuid receiver)
 	std::string addonData = msg.GetMsgData();
 	if (addonData == "")
 		return false;
-
 	Player* rPlayer = ObjectAccessor::FindPlayer(receiver);
 	if (!rPlayer)
 		return false;
@@ -199,7 +197,7 @@ bool SpectatorAddonMsg::SendPacket(SpectatorAddonMsg msg , ObjectGuid receiver)
 	data << uint32(addonData.length() + 1);
 	data << addonData;
 	data << uint8(CHAT_TAG_NONE);
-	rPlayer->GetSession()->SendPacket(&data);
+	rPlayer->GetSession()->SendPacket();
 
 	return true;
 }
