@@ -5867,17 +5867,18 @@ void ObjectMgr::LoadGraveyardZones()
 
 WorldSafeLocsEntry const* ObjectMgr::GetDefaultGraveYard(uint32 team)
 {
-    enum DefaultGraveyard
-    {
-        HORDE_GRAVEYARD    = 10, // Crossroads
-        ALLIANCE_GRAVEYARD = 4   // Westfall
-    };
+    // enum DefaultGraveyard
+    // {
+        // HORDE_GRAVEYARD    = 10, // Crossroads
+        // ALLIANCE_GRAVEYARD = 4   // Westfall
+    // };
 
-    if (team == HORDE)
-        return sWorldSafeLocsStore.LookupEntry(HORDE_GRAVEYARD);
-    else if (team == ALLIANCE)
-        return sWorldSafeLocsStore.LookupEntry(ALLIANCE_GRAVEYARD);
-    else return NULL;
+    // if (team == HORDE)
+        // return sWorldSafeLocsStore.LookupEntry(HORDE_GRAVEYARD);
+    // else if (team == ALLIANCE)
+        // return sWorldSafeLocsStore.LookupEntry(ALLIANCE_GRAVEYARD);
+    // else 
+		return NULL;
 }
 
 WorldSafeLocsEntry const* ObjectMgr::GetClosestGraveYard(float x, float y, float z, uint32 MapId, uint32 team)
