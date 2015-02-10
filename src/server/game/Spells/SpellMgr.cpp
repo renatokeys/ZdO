@@ -3275,6 +3275,13 @@ void SpellMgr::LoadSpellInfoCorrections()
             case 49575: // Death Grip Pull Time
                 spellInfo->Effects[EFFECT_0].MiscValueB = 70;
                 break;
+			case 52610: // Savage Roar
+                spellInfo->AttributesEx |= SPELL_ATTR1_NOT_BREAK_STEALTH;
+                spellInfo->AttributesEx3 |= SPELL_ATTR3_NO_INITIAL_AGGRO;
+                break;
+            case 60106: // Lava Lash
+                spellInfo->Effects[EFFECT_1].TargetA = SpellImplicitTargetInfo(TARGET_UNIT_TARGET_ENEMY);
+                break;
             case 53241: // Marked for Death (Rank 1)
             case 53243: // Marked for Death (Rank 2)
             case 53244: // Marked for Death (Rank 3)
@@ -3347,6 +3354,9 @@ void SpellMgr::LoadSpellInfoCorrections()
             case 61791: // Ride Vehicle (Yogg-Saron)
                 /// @todo: remove this when basepoints of all Ride Vehicle auras are calculated correctly
                 spellInfo->Effects[EFFECT_0].BasePoints = 1;
+                break;
+			case 44535: // Spirit Heal, abilities also have no cost
+                spellInfo->Effects[EFFECT_0].MiscValue = 127;
                 break;
             case 59630: // Black Magic
                 spellInfo->Attributes |= SPELL_ATTR0_PASSIVE;
