@@ -1150,24 +1150,14 @@ void Battleground::EventPlayerLoggedOut(Player* player)
     m_Players[guid].OfflineRemoveTime = sWorld->GetGameTime() + MAX_OFFLINE_TIME;
     if (GetStatus() == STATUS_IN_PROGRESS)
     {
-		if (!player->IsSpectator())
-		{
-			// drop flag and handle other cleanups
-			RemovePlayer(player, guid, GetPlayerTeam(guid));
+        // drop flag and handle other cleanups
+        RemovePlayer(player, guid, GetPlayerTeam(guid));
 
-			// 1 player is logging out, if it is the last, then end arena!
-			if (isArena())
-				if (GetAlivePlayersCountByTeam(player->GetTeam()) <= 1 && GetPlayersCountByTeam(GetOtherTeam(player->GetTeam())))
-					EndBattleground(GetOtherTeam(player->GetTeam()));
-		}
-	}
-	if (!player->IsSpectator())
-		player->LeaveBattleground();
-	else
-	{
-		player->TeleportToBGEntryPoint();
-		RemoveSpectator(player->GetGUID());
-	}
+        // 1 player is logging out, if it is the last, then end arena!
+        if (isArena())
+            if (GetAlivePlayersCountByTeam(player->GetTeam()) <= 1 && GetPlayersCountByTeam(GetOtherTeam(player->GetTeam())))
+                EndBattleground(GetOtherTeam(player->GetTeam()));
+    }
 }
 
 // This method should be called only once ... it adds pointer to queue

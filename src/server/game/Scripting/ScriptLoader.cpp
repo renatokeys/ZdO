@@ -557,20 +557,20 @@ void AddSC_isle_of_conquest();
 // void AddSC_boss_nexusprince_shaffar();
 // void AddSC_instance_mana_tombs();
 
-Auchindoun - Sekketh Halls
+// Auchindoun - Sekketh Halls
 // void AddSC_boss_darkweaver_syth();
 // void AddSC_boss_talon_king_ikiss();
 // void AddSC_boss_anzu();
 // void AddSC_instance_sethekk_halls();
 
-Auchindoun - Shadow Labyrinth
+//Auchindoun - Shadow Labyrinth
 // void AddSC_boss_ambassador_hellmaw();
 // void AddSC_boss_blackheart_the_inciter();
 // void AddSC_boss_grandmaster_vorpil();
 // void AddSC_boss_murmur();
 // void AddSC_instance_shadow_labyrinth();
 
-Black Temple
+//Black Temple
 // void AddSC_black_temple();
 // void AddSC_boss_illidan();
 // void AddSC_boss_shade_of_akama();
@@ -583,7 +583,7 @@ Black Temple
 // void AddSC_boss_illidari_council();
 // void AddSC_instance_black_temple();
 
-Coilfang Reservoir - Serpent Shrine Cavern
+//Coilfang Reservoir - Serpent Shrine Cavern
 // void AddSC_boss_fathomlord_karathress();
 // void AddSC_boss_hydross_the_unstable();
 // void AddSC_boss_lady_vashj();
@@ -592,24 +592,24 @@ Coilfang Reservoir - Serpent Shrine Cavern
 // void AddSC_instance_serpentshrine_cavern();
 // void AddSC_boss_the_lurker_below();
 
-Coilfang Reservoir - The Steam Vault
+//Coilfang Reservoir - The Steam Vault
 // void AddSC_boss_hydromancer_thespia();
 // void AddSC_boss_mekgineer_steamrigger();
 // void AddSC_boss_warlord_kalithresh();
 // void AddSC_instance_steam_vault();
 
-Coilfang Reservoir - The Slave Pens
+//Coilfang Reservoir - The Slave Pens
 // void AddSC_instance_the_slave_pens();
 // void AddSC_boss_mennu_the_betrayer();
 // void AddSC_boss_rokmar_the_crackler();
 // void AddSC_boss_quagmirran();
 
-Coilfang Reservoir - The Underbog
+//Coilfang Reservoir - The Underbog
 // void AddSC_instance_the_underbog();
 // void AddSC_boss_hungarfen();
 // void AddSC_boss_the_black_stalker();
 
-Gruul's Lair
+//Gruul's Lair
 // void AddSC_boss_gruul();
 // void AddSC_boss_high_king_maulgar();
 // void AddSC_instance_gruuls_lair();
@@ -1378,7 +1378,7 @@ void AddNorthrendScripts()
 void AddEventScripts()
 {
 #ifdef SCRIPTS
-    AddSC_event_childrens_week();
+//    AddSC_event_childrens_week();
 #endif
 }
 
