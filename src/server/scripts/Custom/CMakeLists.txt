@@ -19,6 +19,9 @@ set(scripts_STAT_SRCS
 	Custom/Reforging.cpp
  	Custom/npc_arena1v1.cpp
     Custom/npc_arena1v1.h
+	Custom/bm.cpp
+	Custom/trainer.cpp
+	Custom/prof.cpp
 )
 
 message("  -> Prepared: Custom")

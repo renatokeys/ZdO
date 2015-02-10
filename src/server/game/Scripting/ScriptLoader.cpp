@@ -1419,6 +1419,9 @@ void AddSC_npc_1v1arena();
 void AddSC_PWS_Transmogrification();
 void AddSC_CS_Transmogrification();
 void AddSC_REFORGER_NPC();
+void AddSC_npc_welcome();
+void ddSC_Beastmaster_Trainer();
+void AddSC_Professions_NPC();
 #endif
 
 void AddCustomScripts()
@@ -1430,5 +1433,8 @@ void AddCustomScripts()
     AddSC_PWS_Transmogrification();
     AddSC_CS_Transmogrification();
 	AddSC_REFORGER_NPC();
+	AddSC_npc_welcome();
+	AddSC_Beastmaster_Trainer();
+	AddSC_Professions_NPC();
 #endif
 }
