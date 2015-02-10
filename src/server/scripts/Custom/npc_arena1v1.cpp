@@ -175,24 +175,24 @@ public:
 		}
 
 		if(player->InBattlegroundQueueForBattlegroundQueueType(BATTLEGROUND_QUEUE_5v5))
-				player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Leave queue 1v1 Arena", GOSSIP_SENDER_MAIN, 3, "Are you sure?", 0, false);
+				player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Sair do time 1v1 Arena", GOSSIP_SENDER_MAIN, 3, "Tem certeza?", 0, false);
 		else
-			player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Sign up 1v1 Arena (unrated)", GOSSIP_SENDER_MAIN, 20);
+			player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Entrar 1v1 Arena (unrated)", GOSSIP_SENDER_MAIN, 20);
 
 		if(player->GetArenaTeamId(ArenaTeam::GetSlotByType(ARENA_TEAM_5v5)) == NULL)
-			player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Create new 1v1 Arenateam", GOSSIP_SENDER_MAIN, 1, "Create 1v1 arenateam?", sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS), false);
+			player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Criar novo 1v1 Arenateam", GOSSIP_SENDER_MAIN, 1, "Criar 1v1 arenateam?", sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS), false);
 		else
 		{
 			if(player->InBattlegroundQueueForBattlegroundQueueType(BATTLEGROUND_QUEUE_5v5) == false)
 			{
-				player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Sign up 1v1 Arena (rated)", GOSSIP_SENDER_MAIN, 2);
-				player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Disband arenateam", GOSSIP_SENDER_MAIN, 5, "Are you sure?", 0, false);
+				player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Entrar 1v1 Arena (rated)", GOSSIP_SENDER_MAIN, 2);
+				player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Deletar arenateam", GOSSIP_SENDER_MAIN, 5, "tem certeza?", 0, false);
 			}
 
-			player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Show statistics", GOSSIP_SENDER_MAIN, 4);
+			player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Mostrar suas estatisticas", GOSSIP_SENDER_MAIN, 4);
 		}
 
-		player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Script Info", GOSSIP_SENDER_MAIN, 8);
+		//player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Script Info", GOSSIP_SENDER_MAIN, 8);
 		player->SEND_GOSSIP_MENU(68, me->GetGUID());
 		return true;
 	}
