@@ -22,6 +22,7 @@ set(scripts_STAT_SRCS
 	Custom/bm.cpp
 	Custom/trainer.cpp
 	Custom/prof.cpp
+	Custom/ArenaSpectator.cpp
 )
 
 message("  -> Prepared: Custom")

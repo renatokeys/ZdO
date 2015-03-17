@@ -1,21 +1,3 @@
-/*
- * Copyright (C) 2008-2012 TrinityCore <http://www.trinitycore.org/>
- * Copyright (C) 2005-2009 MaNGOS <http://getmangos.com/>
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation; either version 2 of the License, or (at your
- * option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
- * more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
 #define SPECTATOR_ADDON_SPELL_INTERUPTED 99999 // specific addons
 #define SPECTATOR_ADDON_SPELL_CANCELED 99998   // numbers =\
 
@@ -35,7 +17,6 @@ enum SpectatorPrefix {
     SPECTATOR_PREFIX_COUNT      // must be at the end of list
 };
 
-
 class SpectatorAddonMsg {
     public:
         SpectatorAddonMsg();
@@ -53,9 +34,9 @@ class SpectatorAddonMsg {
         void SetPowerType(Powers power)         { powerType = power; EnableFlag(SPECTATOR_PREFIX_POWERTYPE); }
 
         void CastSpell(uint32 _spellId, uint32 _castTime) { spellId = _spellId; castTime = _castTime; EnableFlag(SPECTATOR_PREFIX_SPELL); }
-        void CreateAura(uint32 _caster,  uint32 _spellId, bool _isDebuff, uint8 _type, int32 _duration, int32 _expire, uint16 _stack, bool _isRemove);
+        void CreateAura(ObjectGuid _caster,  uint32 _spellId, bool _isDebuff, uint8 _type, int32 _duration, int32 _expire, uint16 _stack, bool _isRemove);
 
-        static bool SendPacket(SpectatorAddonMsg msg, uint32 receiver);
+        static bool SendPacket(SpectatorAddonMsg msg, ObjectGuid receiver);
         bool SendPacket(ObjectGuid receiver);
 
         std::string GetMsgData();
@@ -83,7 +64,7 @@ class SpectatorAddonMsg {
         uint32 team;
 
         // aura data
-        uint32 aCaster;
+        ObjectGuid aCaster;
         uint32 aSpellId;
         bool aIsDebuff;
         uint8 aType;

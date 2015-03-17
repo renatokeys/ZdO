@@ -1415,12 +1415,12 @@ void AddBattlegroundScripts()
 #ifdef SCRIPTS
 /* This is where custom scripts' loading functions should be declared. */
 void AddSC_npc_1v1arena();
-//void AddSC_arena_spectator_script();
+void AddSC_arena_spectator_script();
 void AddSC_PWS_Transmogrification();
 void AddSC_CS_Transmogrification();
 void AddSC_REFORGER_NPC();
 void AddSC_npc_welcome();
-void ddSC_Beastmaster_Trainer();
+void AddSC_Beastmaster_Trainer();
 void AddSC_Professions_NPC();
 #endif
 
@@ -1429,7 +1429,7 @@ void AddCustomScripts()
 #ifdef SCRIPTS
     /* This is where custom scripts should be added. */
 	AddSC_npc_1v1arena();
-    //AddSC_arena_spectator_script();
+    AddSC_arena_spectator_script();
     AddSC_PWS_Transmogrification();
     AddSC_CS_Transmogrification();
 	AddSC_REFORGER_NPC();
