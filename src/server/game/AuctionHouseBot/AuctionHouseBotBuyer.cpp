@@ -54,7 +54,7 @@ bool AuctionBotBuyer::Initialize()
     return true;
 }
 
-void AuctionBotBuyer::LoadBuyerValues(BuyerConfiguration& config)
+void AuctionBotBuyer::LoadBuyerValues(BuyerConfiguration& /* config */)
 {
     uint32 factionChance;
 

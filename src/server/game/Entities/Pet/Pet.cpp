@@ -1080,7 +1080,7 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                     int meleeHaste = ((Player*)m_owner)->GetTotalAuraModifier(SPELL_AURA_MOD_MELEE_HASTE);
                     ApplyCastTimePercentMod(meleeHaste, true);
 
-                    SetBonusDamage(int32(GetOwner()->GetTotalAttackPowerValue(BASE_ATTACK) * 0.7f * impurityMod));
+                    SetBonusDamage(int32(GetOwner()->GetTotalAttackPowerValue(BASE_ATTACK) * 0.3f * impurityMod));
                     SetBaseWeaponDamage(BASE_ATTACK, MINDAMAGE, float(petlevel - (petlevel / 4)));
                     SetBaseWeaponDamage(BASE_ATTACK, MAXDAMAGE, float(petlevel + (petlevel / 4)));
                     break;
@@ -1347,7 +1347,7 @@ void Pet::_LoadAuras(uint32 timediff)
                 }
                 aura->SetLoadedState(maxduration, remaintime, remaincharges, stackcount, recalculatemask, &damage[0]);
                 aura->ApplyForTargets();
-                TC_LOG_INFO("entities.pet", "Added aura spellid %u, effectmask %u", spellInfo->Id, effmask);
+                TC_LOG_DEBUG("entities.pet", "Added aura spellid %u, effectmask %u", spellInfo->Id, effmask);
             }
         }
         while (result->NextRow());
