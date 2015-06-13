@@ -1,5 +1,5 @@
-#define SPECTATOR_ADDON_SPELL_INTERUPTED 99999 // specific addons
-#define SPECTATOR_ADDON_SPELL_CANCELED 99998   // numbers =\
+#define SPECTATOR_ADDON_SPELL_INTERUPTED 99999
+#define SPECTATOR_ADDON_SPELL_CANCELED 99998
 
 enum SpectatorPrefix {
     SPECTATOR_PREFIX_PLAYER,
@@ -14,7 +14,7 @@ enum SpectatorPrefix {
     SPECTATOR_PREFIX_TEAM,
     SPECTATOR_PREFIX_SPELL,
     SPECTATOR_PREFIX_AURA,
-    SPECTATOR_PREFIX_COUNT      // must be at the end of list
+    SPECTATOR_PREFIX_COUNT
 };
 
 class SpectatorAddonMsg {
